@@ -1,3 +1,5 @@
+/* CSS RESET */
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,9 +7,228 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #ccc;
+  overflow: hidden;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+canvas {
+  transform: translate3d(-50%, 0, 0);
+  cursor: url(./icons/pencil.png) 0 34, auto;
+  margin: 100px 50%;
+  background-color: #fff;
+  box-shadow: 0.2rem 0.2rem 0.3rem rgba(0,0,0,0.2);
+}
+
+/* FONT FACES */
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  font-weight: 400;
+  src: local("HelveticaNeueCyr")
+    url("./fonts/HelveticaNeueCyr-Roman.otf") format("otf");
+}
+
+@font-face {
+  font-family: "HelveticaNeueCyr";
+  font-weight: 500;
+  src: local("HelveticaNeueCyr")
+    url("./fonts/HelveticaNeueCyr-Medium.otf") format("otf");
+}
+
+/* STYLES */
+
+.window {
+  background-color: #7782a8;
+  border-radius: 0.3rem;
+  box-shadow: 0.2rem 0.2rem 0.3rem rgba(0,0,0,0.2);
+}
+
+.window-body {
+  padding: 0.5rem;
+  background-image: linear-gradient(45deg, #f3f3f3, #f7f9ff);
+  border-bottom-right-radius: 0.3rem;
+  border-bottom-left-radius: 0.3rem;
+  font-family: "HelveticaNeueCyr", sans-serif;
+  font-weight: 400;
+  font-size: 0.75rem;
+  color: #13171b;
+}
+
+.title-bar {
+  height: 1.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-image: linear-gradient(45deg, #13171b, #0e0e0f);
+  border-top-right-radius: 0.3rem;
+  border-top-left-radius: 0.3rem;
+  padding: 0 0.5rem;
+}
+
+.title-bar-text {
+  font-family: "HelveticaNeueCyr", sans-serif;
+  font-weight: 500;
+  font-size: 0.75rem;
+  letter-spacing: 0.025rem;
+  color: #fff;
+  text-shadow: 0.25rem 0.25rem 0 #0e0e0f;
+}
+
+.x-button {
+  height: 1rem;
+  width: 1rem;
+  background-color: #4696ff;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: background-color .2s ease-in;
+  outline: none;
+}
+
+.x-button:hover {
+  background-color: #ff4646;
+}
+
+.button {
+  width: 4.5rem;
+  padding: 0.35rem;
+  background-color: #fff;
+  border-radius: 0.3rem;
+  border: none;
+  cursor: pointer;
+  color: #0e0e0f;
+  font-family: "HelveticaNeueCyr", sans-serif;
+  font-weight: 500;
+  font-size: 0.7rem;
+  transition: background-color .15s ease-in, color .15s ease-in;
+  outline: none;
+  box-shadow: 0.1rem 0.1rem 0.25rem rgba(0,0,0,0.15);
+}
+
+.button:hover {
+  background-color: #0e0e0f;
+  color: #fff;
+}
+
+.color {
+  width: 23px;
+  height: 23px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.colors {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 336px;
+}
+
+.control-panel {
+  position: fixed;
+  bottom: 40px;
+  left: 50%;
+  transform: translate3d(-50%, 0, 0);
+  z-index: 10;
+}
+
+.modal-panel {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-50%, -50%, 0);
+  z-index: 10;
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.field-row-stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0.2rem 0;
+}
+
+.field-row-stacked > * {
+  margin-bottom: 0.35rem;
+}
+
+.field-row > * + * {
+  margin-left: 0.5rem;
+}
+
+.draggable {
+  display: inline-block;
+  z-index: 99;
+}
+
+.draggable > .title-bar {
+  cursor: grab;
+}
+
+.flex-panel {
+  position: fixed;
+  top: 2rem;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: flex-start;
+  z-index: 50;
+}
+
+.flex-panel > *:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+.projects-container {
+  overflow: auto;
+  max-width: 600px;
+  height: 400px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start; 
+  padding: 0 10px;
+  width: 600px;
+  background-image: linear-gradient(45deg, #f3f3f3, #f7f9ff);
+}
+
+.project-card {
+  width: 100px;
+  height: 100px;
+  margin: 20px;  
+  cursor: pointer;
+  text-align: center;
+}
+
+.project-card img {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 10px;
+}
+
+.text-input {
+  border: none;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  border-bottom: 0.25rem solid #0e0e0f;
+  transition: border-color .2s ease-out;
+}
+
+.text-input:focus, 
+.text-input:active {
+  outline: none;
+  border-color: #4696ff;
+}
+

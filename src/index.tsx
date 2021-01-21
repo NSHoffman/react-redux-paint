@@ -3,10 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { Provider } from "react-redux";
+import { store } from "./redux/root";
+import { CanvasProvider } from './CanvasContext';
+import { DnDProvider } from './shared/DnDProvider';
+ 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <CanvasProvider>
+        <DnDProvider>
+          <App />
+        </DnDProvider>
+      </CanvasProvider>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
